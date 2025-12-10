@@ -8,8 +8,8 @@
 </head>
 <body>
   <header>
-    <h1>هلا والله اقلط اقلط</h1>
-    <p></p>اختر القسم اللي تبي تختبر طال عمرك:</p>
+    <h1>مرحبا بك في اللعبة</h1>
+    <p>اختر القسم الذي ترغب في اختباره:</p>
   </header>
   <div class="container">
     <ul style="list-style: none; padding: 0;">
@@ -32,10 +32,15 @@
   </footer>
 
   <script>
-    // قراءة الدرجات من localStorage
-    document.getElementById("mathScore").textContent = localStorage.getItem('mathScore') || "لم يتم الإجابة بعد";
-    document.getElementById("religionScore").textContent = localStorage.getItem('religionScore') || "لم يتم الإجابة بعد";
-    document.getElementById("soccerScore").textContent = localStorage.getItem('soccerScore') || "لم يتم الإجابة بعد";
+    // قراءة الدرجات من localStorage عند تحميل الصفحة
+    function loadScores() {
+      document.getElementById("mathScore").textContent = localStorage.getItem('mathScore') || "لم يتم الإجابة بعد";
+      document.getElementById("religionScore").textContent = localStorage.getItem('religionScore') || "لم يتم الإجابة بعد";
+      document.getElementById("soccerScore").textContent = localStorage.getItem('soccerScore') || "لم يتم الإجابة بعد";
+    }
+
+    // استدعاء وظيفة تحميل الدرجات عند تحميل الصفحة
+    loadScores();
 
     // وظيفة لإعادة تعيين الدرجات
     function resetScores() {
@@ -44,7 +49,7 @@
       localStorage.removeItem('religionScore');
       localStorage.removeItem('soccerScore');
       
-      // إعادة تعيين النصوص في الصفحة
+      // إعادة تعيين النصوص في الصفحة بعد مسح الدرجات
       document.getElementById("mathScore").textContent = "لم يتم الإجابة بعد";
       document.getElementById("religionScore").textContent = "لم يتم الإجابة بعد";
       document.getElementById("soccerScore").textContent = "لم يتم الإجابة بعد";
@@ -54,4 +59,3 @@
   </script>
 </body>
 </html>
-
