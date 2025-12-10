@@ -17,16 +17,16 @@ body {
 /* تنسيق العنوان */
 header h1 {
   color: #ff9800; /* لون برتقالي دافئ */
-  font-size: 2.5em; /* تكبير حجم العنوان */
-  margin-bottom: 20px;
+  font-size: 2em; /* تصغير حجم العنوان */
+  margin-bottom: 15px;
 }
 
 /* تنسيق السؤال */
 .question {
-  font-size: 2.5em; /* تصغير حجم السؤال ليكون بحجم مناسب */
+  font-size: 2em; /* تصغير حجم السؤال */
   font-weight: bold;
   color: #fff; /* لون النص أبيض */
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 /* تنسيق قائمة الخيارات */
@@ -36,7 +36,7 @@ ul {
   display: flex;
   flex-direction: column; /* ترتيب الأزرار بشكل عمودي */
   align-items: center;
-  gap: 20px; /* المسافة بين الأزرار */
+  gap: 15px; /* تقليل المسافة بين الأزرار */
 }
 
 ul li {
@@ -47,11 +47,11 @@ ul li a {
   display: block;
   background-color: #4caf50; /* زر أخضر هادئ */
   color: white;
-  padding: 20px; /* تقليل الحجم */
-  font-size: 2em; /* تقليل حجم النص داخل الأزرار */
+  padding: 15px; /* تقليل الحجم */
+  font-size: 1.8em; /* تقليل حجم النص داخل الأزرار */
   border-radius: 12px;
-  width: 70%; /* جعل الأزرار تأخذ نسبة كبيرة من العرض */
-  margin: 10px 0; /* المسافة بين الأزرار */
+  width: 60%; /* جعل الأزرار تأخذ نسبة صغيرة من العرض */
+  margin: 5px 0; /* المسافة بين الأزرار */
   text-align: center;
   transition: background-color 0.3s ease, transform 0.3s ease; /* تأثير عند التمرير */
 }
@@ -63,11 +63,11 @@ ul li a:hover {
 
 /* تنسيق الزر الخاص بالعودة إلى الصفحة الرئيسية */
 #backToHome {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 #backToHome p {
-  font-size: 2em; /* تكبير النص */
+  font-size: 1.8em; /* تصغير النص */
   color: #ff9800;
   font-weight: bold;
   cursor: pointer;
