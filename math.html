@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mathematics Questions</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header>
+    <h1>Mathematics Questions</h1>
+  </header>
+  <div class="container" id="questionContainer">
+    <!-- سيتم عرض الأسئلة هنا -->
+  </div>
+  <div id="result"></div>
+  <div id="backToHome">
+    <button onclick="window.location.href='index.html'">Back to Homepage</button>
+  </div>
+  <footer>
+    <p>Developed by Fares</p>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        question: "1. ما هو الجذر التربيعي لـ 144؟",
+        options: ["12", "10", "14", "16"],
+        correctAnswer: "12"
+      },
+      {
+        question: "2. إذا كان x = 2، ما هو 3x + 5؟",
+        options: ["11", "9", "8", "7"],
+        correctAnswer: "11"
+      },
+      {
+        question: "3. ما هو ناتج 25 × 12؟",
+        options: ["300", "310", "320", "330"],
+        correctAnswer: "300"
+      },
+      {
+        question: "4. ما هو حاصل ضرب 15 × 7؟",
+        options: ["100", "105", "110", "115"],
+        correctAnswer: "105"
+      },
+      {
+        question: "5. إذا كان طول المستطيل 10 وحدات وعرضه 5 وحدات، فما هي مساحته؟",
+        options: ["50", "60", "70", "80"],
+        correctAnswer: "50"
+      },
+      {
+        question: "6. ما هو الجذر التكعيبي لـ 27؟",
+        options: ["3", "4", "5", "6"],
+        correctAnswer: "3"
+      },
+      {
+        question: "7. ما هو ناتج 150 ÷ 25؟",
+        options: ["6", "5", "7", "8"],
+        correctAnswer: "6"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function displayQuestion() {
+      if (currentQuestionIndex < questions.length) {
+        const question = questions[currentQuestionIndex];
+        document.getElementById("questionContainer").innerHTML = `
+          <p>${question.question}</p>
+          <div class="options">
+            ${question.options.map(option => `
+              <button class="option" onclick="checkAnswer('${option}')">${option}</button>
+            `).join('')}
+          </div>
+        `;
+      } else {
+        showResult();
+      }
+    }
+
+    function checkAnswer(selectedAnswer) {
+      const question = questions[currentQuestionIndex];
+      if (selectedAnswer === question.correctAnswer) {
+        score++;
+      }
+      currentQuestionIndex++;
+      displayQuestion();
+    }
+
+    function showResult() {
+      document.getElementById('result').textContent = `انتهت الأسئلة! درجتك: ${score} من ${questions.length}`;
+    }
+
+    displayQuestion();
+  </script>
+</body>
+</html>
