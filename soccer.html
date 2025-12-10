@@ -3,19 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saudi Pro League Questions</title>
+  <title>أسئلة الدوري السعودي</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <header>
-    <h1>Saudi Pro League Questions</h1>
+    <h1>أسئلة الدوري السعودي</h1>
   </header>
   <div class="container" id="questionContainer">
     <!-- سيتم عرض الأسئلة هنا -->
   </div>
   <div id="result"></div>
+  <div id="answersList" style="display:none;">
+    <h3>إجاباتك:</h3>
+    <div id="answers"></div>
+  </div>
   <div id="backToHome">
-    <button onclick="window.location.href='index.html'">Back to Homepage</button>
+    <button onclick="window.location.href='index.html'">العودة إلى الصفحة الرئيسية</button>
   </div>
   <footer>
     <p>تم تطوير اللعبة بواسطة فارس</p>
@@ -23,13 +27,13 @@
 
   <script>
     const questions = [
-      { question: "1. ما هو النادي الأكثر فوزًا بالدوري السعودي؟", options: ["الهلال", "النصر", "الاتحاد", "الأهلي"], correctAnswer: "الهلال" },
-      { question: "2. من هو الهداف التاريخي للدوري السعودي؟", options: ["عماد الحوسني", "مهاجم النصر", "محمد السهلاوي", "عمر السومة"], correctAnswer: "عمر السومة" },
-      { question: "3. كم عدد فرق الدوري السعودي للمحترفين؟", options: ["14", "16", "18", "20"], correctAnswer: "16" },
-      { question: "4. ما هي أول مباراة في الدوري السعودي هذا الموسم؟", options: ["الهلال ضد الأهلي", "النصر ضد الفيصلي", "الاتحاد ضد الشباب", "الهلال ضد النصر"], correctAnswer: "الهلال ضد الأهلي" },
-      { question: "5. من هو أفضل لاعب في الدوري السعودي لهذا العام؟", options: ["سالم الدوسري", "عبدالله الحمدان", "عمر السومة", "هارون كامارا"], correctAnswer: "سالم الدوسري" },
-      { question: "6. كم عدد بطولات الهلال في الدوري السعودي؟", options: ["14", "15", "16", "17"], correctAnswer: "16" },
-      { question: "7. ما هو اسم ملعب نادي النصر؟", options: ["استاد الملك فهد", "استاد جامعة الملك سعود", "استاد الأمير فيصل", "استاد النصر"], correctAnswer: "استاد جامعة الملك سعود" }
+      { question: "1. ما هو النادي الأكثر فوزًا بالدوري السعودي؟", options: ["الهلال", "النصر", "الاتحاد", "الأهلي"], correctAnswer: "الهلال", userAnswer: "" },
+      { question: "2. من هو الهداف التاريخي للدوري السعودي؟", options: ["عماد الحوسني", "مهاجم النصر", "محمد السهلاوي", "عمر السومة"], correctAnswer: "عمر السومة", userAnswer: "" },
+      { question: "3. كم عدد فرق الدوري السعودي للمحترفين؟", options: ["14", "16", "18", "20"], correctAnswer: "16", userAnswer: "" },
+      { question: "4. ما هي أول مباراة في الدوري السعودي هذا الموسم؟", options: ["الهلال ضد الأهلي", "النصر ضد الفيصلي", "الاتحاد ضد الشباب", "الهلال ضد النصر"], correctAnswer: "الهلال ضد الأهلي", userAnswer: "" },
+      { question: "5. من هو أفضل لاعب في الدوري السعودي لهذا العام؟", options: ["سالم الدوسري", "عبدالله الحمدان", "عمر السومة", "هارون كامارا"], correctAnswer: "سالم الدوسري", userAnswer: "" },
+      { question: "6. كم عدد بطولات الهلال في الدوري السعودي؟", options: ["14", "15", "16", "17"], correctAnswer: "16", userAnswer: "" },
+      { question: "7. ما هو اسم ملعب نادي النصر؟", options: ["استاد الملك فهد", "استاد جامعة الملك سعود", "استاد الأمير فيصل", "استاد النصر"], correctAnswer: "استاد جامعة الملك سعود", userAnswer: "" }
     ];
 
     let currentQuestionIndex = 0;
@@ -39,7 +43,7 @@
       if (currentQuestionIndex < questions.length) {
         const question = questions[currentQuestionIndex];
         document.getElementById("questionContainer").innerHTML = `
-          <p>${question.question}</p>
+          <p class="question">${question.question}</p>
           <div class="options">
             ${question.options.map(option => `
               <button class="option" onclick="checkAnswer('${option}')">${option}</button>
@@ -53,6 +57,7 @@
 
     function checkAnswer(selectedAnswer) {
       const question = questions[currentQuestionIndex];
+      question.userAnswer = selectedAnswer;
       if (selectedAnswer === question.correctAnswer) {
         score++;
       }
@@ -62,12 +67,22 @@
 
     function showResult() {
       document.getElementById('result').textContent = `انتهت الأسئلة! درجتك: ${score} من ${questions.length}`;
-      // تخزين الدرجة في localStorage
-      localStorage.setItem('soccerScore', score);
+      document.getElementById('answersList').style.display = 'block';
+
+      let answersHTML = "";
+      questions.forEach((question, index) => {
+        answersHTML += `
+          <p><strong>السؤال ${index + 1}:</strong> ${question.question}</p>
+          <p><strong>إجابتك:</strong> ${question.userAnswer}</p>
+          <p><strong>الإجابة الصحيحة:</strong> ${question.correctAnswer}</p>
+          <p><strong>${question.userAnswer === question.correctAnswer ? 'إجابة صحيحة' : 'إجابة خاطئة'}</strong></p>
+          <hr/>
+        `;
+      });
+      document.getElementById('answers').innerHTML = answersHTML;
     }
 
     displayQuestion();
   </script>
 </body>
 </html>
-
