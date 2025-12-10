@@ -23,41 +23,13 @@
 
   <script>
     const questions = [
-      {
-        question: "1. ما هو الجذر التربيعي لـ 144؟",
-        options: ["12", "10", "14", "16"],
-        correctAnswer: "12"
-      },
-      {
-        question: "2. إذا كان x = 2، ما هو 3x + 5؟",
-        options: ["11", "9", "8", "7"],
-        correctAnswer: "11"
-      },
-      {
-        question: "3. ما هو ناتج 25 × 12؟",
-        options: ["300", "310", "320", "330"],
-        correctAnswer: "300"
-      },
-      {
-        question: "4. ما هو حاصل ضرب 15 × 7؟",
-        options: ["100", "105", "110", "115"],
-        correctAnswer: "105"
-      },
-      {
-        question: "5. إذا كان طول المستطيل 10 وحدات وعرضه 5 وحدات، فما هي مساحته؟",
-        options: ["50", "60", "70", "80"],
-        correctAnswer: "50"
-      },
-      {
-        question: "6. ما هو الجذر التكعيبي لـ 27؟",
-        options: ["3", "4", "5", "6"],
-        correctAnswer: "3"
-      },
-      {
-        question: "7. ما هو ناتج 150 ÷ 25؟",
-        options: ["6", "5", "7", "8"],
-        correctAnswer: "6"
-      }
+      { question: "1. ما هو الجذر التربيعي لـ 144؟", options: ["12", "10", "14", "16"], correctAnswer: "12" },
+      { question: "2. إذا كان x = 2، ما هو 3x + 5؟", options: ["11", "9", "8", "7"], correctAnswer: "11" },
+      { question: "3. ما هو ناتج 25 × 12؟", options: ["300", "310", "320", "330"], correctAnswer: "300" },
+      { question: "4. ما هو حاصل ضرب 15 × 7؟", options: ["100", "105", "110", "115"], correctAnswer: "105" },
+      { question: "5. إذا كان طول المستطيل 10 وحدات وعرضه 5 وحدات، فما هي مساحته؟", options: ["50", "60", "70", "80"], correctAnswer: "50" },
+      { question: "6. ما هو الجذر التكعيبي لـ 27؟", options: ["3", "4", "5", "6"], correctAnswer: "3" },
+      { question: "7. ما هو ناتج 150 ÷ 25؟", options: ["6", "5", "7", "8"], correctAnswer: "6" }
     ];
 
     let currentQuestionIndex = 0;
@@ -90,6 +62,8 @@
 
     function showResult() {
       document.getElementById('result').textContent = `انتهت الأسئلة! درجتك: ${score} من ${questions.length}`;
+      // تخزين الدرجة في localStorage
+      localStorage.setItem('mathScore', score);
     }
 
     displayQuestion();
