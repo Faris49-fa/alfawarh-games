@@ -15,14 +15,10 @@ body {
 }
 
 /* تنسيق العنوان الرئيسي */
-header {
-  margin-top: 20px;
-}
-
 header h1 {
   color: #ff9800; /* لون برتقالي دافئ */
   font-size: 2.5em; /* حجم العنوان 2.5em */
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* تنسيق الفقرة تحت العنوان */
@@ -30,6 +26,34 @@ header p {
   color: #fff;
   font-size: 1.8em; /* حجم النص تحت العنوان */
   margin-bottom: 30px;
+}
+
+/* تنسيق قائمة الروابط */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 15px 0; /* المسافة بين العناصر */
+}
+
+ul li a {
+  display: block;
+  background-color: #4caf50; /* زر أخضر هادئ */
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 2em; /* تكبير النص داخل الأزرار */
+  border-radius: 12px;
+  width: 250px;
+  margin: 0 auto; /* محاذاة الأزرار إلى المركز */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* تأثير عند التمرير */
+}
+
+ul li a:hover {
+  background-color: #388e3c; /* تغيير اللون إلى الأخضر الداكن عند التمرير */
+  transform: scale(1.05); /* تكبير الحجم عند التمرير */
 }
 
 /* تنسيق السؤال */
@@ -55,7 +79,7 @@ ul {
 }
 
 ul li {
-  margin: 20px 0; /* المسافة بين الخيارات */
+  margin: 20px 0; /* المسافة بين العناصر */
 }
 
 .option {
