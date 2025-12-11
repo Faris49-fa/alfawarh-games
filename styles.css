@@ -16,30 +16,32 @@ body {
 
 /* تنسيق العنوان */
 h1 {
-  font-size: 3em; /* تكبير حجم العنوان */
+  font-size: 3em; /* زيادة حجم العنوان */
   color: #ff9800; /* لون برتقالي */
   margin-bottom: 30px;
   font-weight: bold; /* جعل العنوان ثقيل */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* إضافة ظل للنص */
 }
 
-/* تنسيق السؤال */
-.question {
-  font-size: 2.5em; /* تكبير حجم السؤال */
-  font-weight: bold;
-  color: #ffffff; /* نص أبيض */
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3); /* إضافة ظل خفيف حول النص */
+/* تنسيق قائمة الخيارات */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* زيادة المسافة بين الأزرار */
 }
 
-/* تنسيق قائمة الخيارات */
+/* تنسيق الأزرار */
 ul li a {
   display: block;
-  padding: 30px; /* زيادة الحجم بشكل واضح */
-  font-size: 2.5em; /* زيادة حجم النص داخل الأزرار */
+  padding: 30px; /* تكبير الأزرار */
+  font-size: 2.5em; /* تكبير حجم النص داخل الأزرار */
   border-radius: 15px; /* جعل الأزرار مدورة بشكل جميل */
-  width: 100%; /* الأزرار تأخذ عرض كامل */
-  margin: 15px 0; /* المسافة بين الأزرار */
+  width: 280px; /* زيادة عرض الأزرار */
+  margin: 10px 0; /* المسافة بين الأزرار */
   text-align: center;
   text-transform: uppercase; /* تكبير الحروف وجعلها علوية */
   font-weight: bold;
@@ -54,7 +56,7 @@ ul li a {
 /* تأثير التمرير على الأزرار */
 ul li a:hover {
   background: linear-gradient(145deg, #fb8c00, #ff9800); /* تدرج لوني مائل عند التمرير */
-  transform: translateY(-8px); /* رفع الزر قليلاً عند التمرير */
+  transform: translateY(-5px); /* رفع الزر قليلاً عند التمرير */
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4); /* زيادة الظل عند التمرير */
   cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
 }
