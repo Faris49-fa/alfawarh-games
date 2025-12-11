@@ -31,16 +31,16 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* زيادة المسافة بين الأزرار */
+  gap: 25px; /* زيادة المسافة بين الأزرار */
 }
 
 /* تنسيق الأزرار */
 ul li a {
   display: block;
-  padding: 30px; /* تكبير الأزرار */
-  font-size: 2.5em; /* تكبير حجم النص داخل الأزرار */
+  padding: 40px; /* زيادة حجم الأزرار بشكل كبير */
+  font-size: 3em; /* زيادة حجم النص داخل الأزرار */
   border-radius: 15px; /* جعل الأزرار مدورة بشكل جميل */
-  width: 280px; /* زيادة عرض الأزرار */
+  width: 350px; /* عرض الأزرار أكبر */
   margin: 10px 0; /* المسافة بين الأزرار */
   text-align: center;
   text-transform: uppercase; /* تكبير الحروف وجعلها علوية */
